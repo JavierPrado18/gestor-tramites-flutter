@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto1/screens/config_screen.dart';
+import 'package:proyecto1/widgets/index.dart';
 
 class HomeScreem extends StatelessWidget {
   const HomeScreem({super.key});
@@ -8,20 +9,26 @@ class HomeScreem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+<<<<<<< HEAD
         title:const  Text("UNIVERSIDAD"),
+=======
+        title: const Text("home"),
+>>>>>>> 1ace0bfc1fc8adb5f5e955fe4e41c6bf4bd81664
       ),
+      drawer: const DrawerST(),
       body: Center(
         
 
         //solo para que me lleve a config
-        child: MaterialButton(onPressed: () {
-          Navigator.push(context, 
-            MaterialPageRoute(builder: 
-            ((context) =>const ConfigScreem() )
-            ));
-        },
-        child:const Text("settings"),
-        color: Colors.amber,
+        child: MaterialButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const ConfigScreem())));
+          },
+          child: const Text("settings"),
+          color: Colors.amber,
         ),
       ),
       //drawer: Drawer(
