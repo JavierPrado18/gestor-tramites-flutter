@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
 import 'package:proyecto1/screens/index.dart';
+import 'package:proyecto1/screens/login.dart';
 
 void main() async{
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
-      home: HomeScreem(
+      home: LoginPage(
         
       ),
     );
