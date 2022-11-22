@@ -121,7 +121,7 @@ class DrawerST extends StatelessWidget {
                     title: 'Generar Tramite',
                     icon: Icons.add,
                     trailing: Text(''),
-                    onTap: HomeScreem(),
+                    onTap: GenerarTramitesScreen(),
                   ),
                   ListTileCustomized(
                     height: 35,
