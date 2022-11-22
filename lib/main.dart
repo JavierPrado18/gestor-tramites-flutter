@@ -2,21 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
+import 'package:proyecto1/routes/route.dart';
 import 'package:proyecto1/screens/index.dart';
 
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Preferences.init();
 
-  runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (context) =>ThemeProvider(isDartMode: Preferences.theme) ,)
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => ThemeProvider(isDartMode: Preferences.theme),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => ProviderLogin(),
+      )
     ],
-    child:const MyApp(),
-    )
-  );
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,10 +33,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
-      home: HomeScreem(
-        
-      ),
+      onGenerateRoute: MyRoutes.generateRoute,
+      initialRoute: MyRoutes.rLogin,
+      //home: HomeScreem(),
     );
   }
 }
-

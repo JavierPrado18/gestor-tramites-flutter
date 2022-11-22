@@ -73,13 +73,6 @@ class DrawerST extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   ListTileCustomized(
-                    height: 35,
-                    title: 'Iniciar Sesion',
-                    icon: Icons.person_pin_rounded,
-                    trailing: Text('', style: TextStyle(fontSize: 12)),
-                    onTap: HomeScreem(),
-                  ),
-                  ListTileCustomized(
                     height: 50,
                     title: 'Perfil',
                     icon: Icons.person,
