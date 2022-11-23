@@ -47,7 +47,7 @@ class _GenerarTramitesScreenState extends State<GenerarTramitesScreen> {
               CustomTextFieldScreen(
                 initialValue: '',
                 keyboardType: TextInputType.number,
-                hintext: 'Celular',
+                hintext: 'Telefono Celular',
                 prefixIcon: Icon(Icons.phone),
                 onChange: (value) {
                   setState(() {});
