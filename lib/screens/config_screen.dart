@@ -10,6 +10,8 @@ class ConfigScreem extends StatefulWidget {
   const ConfigScreem({super.key});
 
   @override
+
+  
   State<ConfigScreem> createState() => _ConfigScreemState();
 }
 
@@ -18,18 +20,9 @@ class _ConfigScreemState extends State<ConfigScreem> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(112, 25, 28,1),
         title: const Text("Settings"), 
         centerTitle: true,
-      //   actions: [
-      //   Switch.adaptive(
-      //       value: Preferences.theme,
-      //       onChanged: (value) {
-      //         Preferences.theme = value;
-      //         final themeP = Provider.of<ThemeProvider>(context, listen: false);
-      //         value ? themeP.setOscuro() : themeP.setClaro();
-      //         setState(() {});
-      //       })
-      // ]
       ),
       drawer: const DrawerST(),
       body: SettingsList(
@@ -41,7 +34,14 @@ class _ConfigScreemState extends State<ConfigScreem> {
               SettingsTile.navigation(
                 leading: const Icon(Icons.lock_person_rounded),
                 title: const Text('Cambiar Contraseña'),
-              ),]),
+                onPressed: (context) =>{},
+              ),
+              SettingsTile.navigation(
+                leading: const Icon(Icons.person),
+                title: const Text('Cambiar foto'),
+              ),
+              ]),
+              
           
           SettingsSection(
             title: const Text('Pantalla'),
@@ -61,7 +61,66 @@ class _ConfigScreemState extends State<ConfigScreem> {
             ],
           ),
         ],
+        
+      ),
+      
+    );
+    
+  
+  }
+}
+class DialogExample extends StatelessWidget {
+  const DialogExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('AlertDialog Sample')),
+      body: Center(
+        child: OutlinedButton(
+          onPressed: () {
+            Navigator.of(context).restorablePush(_dialogBuilder);
+          },
+          child: const Text('Open Dialog'),
+        ),
       ),
     );
   }
+
+  static Route<Object?> _dialogBuilder(
+      BuildContext context, Object? arguments) {
+    return DialogRoute<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Basic dialog title'),
+          content: const Text('A dialog is a type of modal window that\n'
+              'appears in front of app content to\n'
+              'provide critical information, or prompt\n'
+              'for a decision to be made.'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Disable'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Enable'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
+
