@@ -35,7 +35,7 @@ class CustomTextFieldScreen extends StatelessWidget {
         fillColor: Colors.white,
         hintText: hintext,
         prefix: prefixIcon,
-        contentPadding: const EdgeInsets.all(18),
+        contentPadding: const EdgeInsets.all(8),
       ),
     );
   }
