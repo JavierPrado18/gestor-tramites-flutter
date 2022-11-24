@@ -56,10 +56,14 @@ class DrawerST extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'User123',
-                            style: Styles.title,
+                            (Preferences.usuario == '')
+                                ? 'User123'
+                                : Preferences.usuario,
+                            style: Styles.titleDrawer,
+                            softWrap: true,
                           ),
-                          Text('Ingenieria de Sistemas', style: Styles.subtitle)
+                          Text('Ingenieria de Sistemas',
+                              style: Styles.subtitleDrawer)
                         ],
                       ),
                     )
