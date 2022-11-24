@@ -77,7 +77,7 @@ class DrawerST extends StatelessWidget {
                     title: 'Perfil',
                     icon: Icons.person,
                     trailing: Text('', style: TextStyle(fontSize: 12)),
-                    onTap: HomeScreem(),
+                    onTap: PerfilScreen(),
                   ),
                   ListTileCustomized(
                     height: 50,

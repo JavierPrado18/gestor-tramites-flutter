@@ -14,7 +14,7 @@ class MyRoutes {
       case ('/home'):
         return MaterialPageRoute(builder: (_) => const HomeScreem());
       case ('/perfil'):
-        return MaterialPageRoute(builder: (_) => const HomeScreem());
+        return MaterialPageRoute(builder: (_) => const PerfilScreen());
       case ('/login'):
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case ('/ajustes'):
