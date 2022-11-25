@@ -12,47 +12,101 @@ class PerfilScreen extends StatelessWidget {
     return Scaffold(
       appBar:
       AppBar(
-        backgroundColor: Color.fromRGBO(112, 25, 28,1),
+        backgroundColor: Color.fromARGB(255, 112, 19, 22).withOpacity(0.8),
         title: const Text("Perfil",style: TextStyle(color: Colors.white),),
         centerTitle: true,
-       
-        actions: [
+                actions: [
           IconButton(onPressed:() {
              Navigator.push(
               context, MaterialPageRoute(builder: (context) => ConfigScreem()));
           }, icon:Icon(Icons.settings,color: Colors.white,))
         ],),
-      drawer: DrawerST(),
+      drawer:DrawerST(),
       body: SingleChildScrollView(
         child: Column(children: [
-          Container(
-            decoration: BoxDecoration(
-              color:Color.fromRGBO(112, 25, 28,1),
-              borderRadius: BorderRadius.only(bottomLeft:Radius.circular(40),bottomRight:Radius.circular(40)),
-              
-              ),
-            width: double.infinity,
-          
-            child:Column(
-              children:const [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(""),
-                  radius: 80,
+          Stack(
+        
+            children:[ 
+              ClipPath(
+                clipper: WaveClipper(),
+                child: Container(
+                  padding: const EdgeInsets.only(bottom: 450),
+                  
+                  decoration: BoxDecoration(
+                  image: DecorationImage(image: NetworkImage(Preferences.img),fit: BoxFit.cover),
+                  
+                  
+                  ),
+                  height: 260,
+                  alignment: Alignment.center,
+                  
                 ),
-                SizedBox(height: 20,),
-                //Text('$Preferences.usuario'),
-                Text("meow el programador",style: TextStyle(color: Colors.white),),
-                SizedBox(height: 20,)
-              ],
-            ) ,
+              ),
+              ClipPath(
+                clipper: WaveClipper(),
+                child: Container(
+                  padding: const EdgeInsets.only(bottom: 450),
+                  
+                  decoration: BoxDecoration(
+                  color:Color.fromRGBO(112, 25, 28,1).withOpacity(.5),
+                  
+                  ),
+                  height: 250,
+                  alignment: Alignment.center,
+                  
+                ),
+              ),
+              ClipPath(
+                  clipper: WaveClipper(waveDeep: 0, waveDeep2: 100 ),
+                  child: Container(
+                    padding: const EdgeInsets.only(bottom: 50),
+                    color: Color.fromRGBO(112, 25, 28,1).withOpacity(.3),
+                    height: 200,
+                    alignment: Alignment.center,
+                   
+                  ),
+                ),
+            //   Container(
+              
+            //   height: 250,
+            //   decoration: BoxDecoration(
+            //     // color:Color.fromRGBO(112, 25, 28,1),
+            //     borderRadius: BorderRadius.only(bottomLeft:Radius.circular(250),bottomRight:Radius.circular(200)),
+                
+            //     ),
+              
+            //   width: double.infinity,
+            
+            // ),
+            Positioned(
+              bottom: 0,
+              right: 30,
+              child: CircleAvatar(
+                radius: 70,
+                backgroundColor:Color.fromRGBO(112, 25, 28,1),
+                child: CircleAvatar(
+                        backgroundImage: NetworkImage(Preferences.img!=""?Preferences.img:"https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                        radius: 63,
+                      ),
+              ),
+            ),
+            Positioned(
+              top: 20,
+              left: 20,
+              child: Text(Preferences.usuario,style: TextStyle(color: Colors.white,fontSize:25),),)
+
+
+            ]
           ),
-          SizedBox(height: 20,),
+          
+          
           Column(
+            
             children: [
               Text("Informacion",style: TextStyle(fontSize: 20 ,fontWeight: FontWeight.bold),),
               ListTile(
                 leading: Icon(Icons.person),
-                title: Text("Nombre"),
+                title: Text("Usuario"),
                 subtitle: Text(Preferences.usuario),
                 
                 
@@ -69,7 +123,7 @@ class PerfilScreen extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.book_rounded),
-                title: Text("Condicion"),
+                title: Text("Rol"),
                 subtitle: Text("Estudiante"),
               ),
       
@@ -80,3 +134,39 @@ class PerfilScreen extends StatelessWidget {
     );
   }
 }
+class WaveClipper extends CustomClipper<Path> {
+  final double waveDeep;
+  final double waveDeep2;
+
+
+  WaveClipper({this.waveDeep = 100,this.waveDeep2 = 0});
+  @override
+  Path getClip(Size size) {
+    final double sw = size.width;
+    final double sh = size.height;
+
+    final Offset controlPoint1 = Offset(sw * .25 , sh -waveDeep2*2);
+    final Offset destinationPoint1 = Offset(sw * .5  , sh - waveDeep- waveDeep2);
+
+    final Offset controlPoint2 = Offset(sw * .75 , sh  - waveDeep*2 );
+    final Offset destinationPoint2 = Offset(sw  , sh - waveDeep);
+
+    final Path path = Path()
+      ..lineTo(0, size.height-waveDeep2)
+      ..quadraticBezierTo(controlPoint1.dx, controlPoint1.dy, destinationPoint1.dx, destinationPoint1.dy
+          )
+      ..quadraticBezierTo(controlPoint2.dx, controlPoint2.dy ,destinationPoint2.dx, destinationPoint2.dy
+          )
+      ..lineTo(size.width, 0)
+      ..lineTo(0, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false; //if new instance have different instance than old instance
+    //then you must return true;
+  }
+}
+

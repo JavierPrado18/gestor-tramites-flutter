@@ -4,7 +4,7 @@ class Preferences {
   static late SharedPreferences _prefs;
 
   static bool _theme = false;
-  static String _img = ' ';
+  static String _img = '';
   static String _usuario = ' ';
   static String _password = ' ';
   static String _telefono = ' ';
