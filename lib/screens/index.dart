@@ -1,3 +1,4 @@
+export 'package:proyecto1/screens/formu_generar_tramite.dart';
 
 export 'package:proyecto1/screens/editar_usuario.dart';
 
