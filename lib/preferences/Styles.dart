@@ -6,6 +6,7 @@ class Styles {
   static Color textColorScreen = Colors.greenAccent;
   static Color textColorScreen2 = Colors.blueGrey;
   static Color botonColorScreen = Colors.blueGrey;
+  static Color botonDisabledColorScreen = Color.fromARGB(255, 93, 126, 16);
 
   ///////Stylos//////////////
   static TextStyle titleDrawer = const TextStyle(
@@ -16,4 +17,6 @@ class Styles {
       GoogleFonts.acme(color: textColorScreen, fontSize: 25);
   static TextStyle subtitleScreen =
       GoogleFonts.acme(color: textColorScreen2, fontSize: 23);
+  static TextStyle helpText =
+      const TextStyle(color: Colors.white, fontSize: 12);
 }

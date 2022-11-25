@@ -41,6 +41,9 @@ dependencies:
   settings_ui: ^2.0.2
   lottie: ^2.0.0
   google_fonts: ^3.0.1
+  http: ^0.13.5
+  flutter_secure_storage: ^6.1.0
+
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
 import 'package:proyecto1/routes/route.dart';
 import 'package:proyecto1/screens/index.dart';
+import 'package:proyecto1/services/services_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,9 @@ void main() async {
       ),
       ChangeNotifierProvider(
         create: (_) => ProviderLogin(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => AuthService(),
       )
     ],
     child: const MyApp(),
