@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/screens/index.dart';
 import 'package:proyecto1/widgets/index.dart';
 
@@ -6,7 +7,8 @@ class PerfilScreen extends StatelessWidget {
   const PerfilScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
+
     return Scaffold(
       appBar:
       AppBar(
@@ -20,7 +22,7 @@ class PerfilScreen extends StatelessWidget {
               context, MaterialPageRoute(builder: (context) => ConfigScreem()));
           }, icon:Icon(Icons.settings,color: Colors.white,))
         ],),
-      drawer: const DrawerST(),
+      drawer: DrawerST(),
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
@@ -34,11 +36,11 @@ class PerfilScreen extends StatelessWidget {
             child:Column(
               children:const [
                 CircleAvatar(
-                  backgroundImage: NetworkImage("https://img.freepik.com/vector-premium/gato-gafas-geek-trabajando-ilustracion-vector-dibujos-animados-mascota-animal-programador-oficina-tecnologia-portatil_7102-687.jpg?w=2000"),
+                  backgroundImage: NetworkImage(""),
                   radius: 80,
                 ),
                 SizedBox(height: 20,),
-                Text("developer@mail.com",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Colors.white),),
+                //Text('$Preferences.usuario'),
                 Text("meow el programador",style: TextStyle(color: Colors.white),),
                 SizedBox(height: 20,)
               ],
@@ -51,7 +53,7 @@ class PerfilScreen extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.person),
                 title: Text("Nombre"),
-                subtitle: Text("Meow  Teem Roket "),
+                subtitle: Text(Preferences.usuario),
                 
                 
               ),
@@ -62,8 +64,8 @@ class PerfilScreen extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.email),
-                title: Text("Email"),
-                subtitle: Text("developer@mail.com"),
+                title: Text("telefono"),
+                subtitle: Text(Preferences.telefono),
               ),
               ListTile(
                 leading: Icon(Icons.book_rounded),

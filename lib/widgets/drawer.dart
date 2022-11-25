@@ -3,11 +3,11 @@ import 'package:proyecto1/preferences/index.dart';
 
 import '../screens/index.dart';
 
-class DrawerST extends StatelessWidget {
-  const DrawerST({
+class  DrawerST extends StatelessWidget {
+  DrawerST({
     Key? key,
   }) : super(key: key);
-
+  String imagen=Preferences.img;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -44,9 +44,7 @@ class DrawerST extends StatelessWidget {
                       shape: const CircleBorder(),
                       child: const CircleAvatar(
                         radius: 35,
-                        backgroundImage: NetworkImage(
-                          'https://cdn.pixabay.com/photo/2022/11/18/21/26/cat-7600991_960_720.jpg',
-                        ),
+                        backgroundImage: NetworkImage("Preferences.img"),
                       ),
                     ),
                     Padding(
