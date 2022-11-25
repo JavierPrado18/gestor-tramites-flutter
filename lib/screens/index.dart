@@ -1,4 +1,6 @@
 
+export 'package:proyecto1/screens/editar_usuario.dart';
+
 export 'package:proyecto1/screens/perfil_screen.dart';
 export 'package:proyecto1/screens/error_screen.dart';
 export 'package:proyecto1/screens/crearUsuario_screen.dart';

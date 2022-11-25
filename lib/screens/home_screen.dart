@@ -12,7 +12,7 @@ class HomeScreem extends StatelessWidget {
         title: const Text("UNMSM"),
         centerTitle: true,
       ),
-      drawer: const DrawerST(),
+      drawer: DrawerST(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

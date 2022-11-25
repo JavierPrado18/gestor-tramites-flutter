@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
+import 'package:proyecto1/screens/editar_usuario.dart';
 import 'package:proyecto1/widgets/drawer.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -33,13 +34,13 @@ class _ConfigScreemState extends State<ConfigScreem> {
             tiles: <SettingsTile>[
               SettingsTile.navigation(
                 leading: const Icon(Icons.lock_person_rounded),
-                title: const Text('Cambiar Contraseña'),
-                onPressed: (context) =>{},
+                title: const Text('Cambiar datos'),
+                onPressed: (context) =>{
+                  Navigator.push(
+              context, MaterialPageRoute(builder: (context) => EditUsuarioScreen()))
+                },
               ),
-              SettingsTile.navigation(
-                leading: const Icon(Icons.person),
-                title: const Text('Cambiar foto'),
-              ),
+              
               ]),
               
           

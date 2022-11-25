@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:proyecto1/screens/index.dart';
 import 'package:proyecto1/screens/recuperar_screen.dart';
 
@@ -28,7 +27,11 @@ class MyRoutes {
       case ('/ajustes'):
         return MaterialPageRoute(
             builder: (_) =>
-                const ConfigScreem()); //subguion en lugar de poner context
+                const ConfigScreem());
+      case ('/editarUsuario'):
+        return MaterialPageRoute(
+            builder: (_) =>
+                const EditUsuarioScreen()); //subguion en lugar de poner context
 
       default:
         return MaterialPageRoute(builder: (_) => const ErrorScreen());
