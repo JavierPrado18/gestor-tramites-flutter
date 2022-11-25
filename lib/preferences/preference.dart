@@ -8,6 +8,7 @@ class Preferences {
   static String _usuario = ' ';
   static String _password = ' ';
   static String _telefono = ' ';
+  static String _titulo = '';
 
   static Future init() async {
     _prefs = await SharedPreferences.getInstance();
@@ -59,5 +60,14 @@ class Preferences {
   static set telefono(String telefono) {
     _telefono = telefono;
     _prefs.setString("telefono", telefono);
+  }
+
+  static String get titulo {
+    return _prefs.getString('titulo') ?? _titulo;
+  }
+
+  static set titulo(String titulo) {
+    _titulo = _titulo;
+    _prefs.setString('titulo', titulo);
   }
 }
