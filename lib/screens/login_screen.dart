@@ -246,7 +246,10 @@ class __LogginFormState extends State<_LogginForm> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Eres Nuevo Aqui?'),
+                    Text(
+                      'No tieenes una cuenta?',
+                      style: Styles.helpText,
+                    ),
                     MaterialButton(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
