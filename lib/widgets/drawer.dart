@@ -42,9 +42,11 @@ class  DrawerST extends StatelessWidget {
                       fillColor: Colors.white,
                       padding: EdgeInsets.all(5.0),
                       shape: const CircleBorder(),
-                      child: const CircleAvatar(
+                      child:  CircleAvatar(
                         radius: 35,
-                        backgroundImage: NetworkImage("Preferences.img"),
+                        backgroundImage:NetworkImage(Preferences.img!=""
+                          ?Preferences.img
+                          :"https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
                       ),
                     ),
                     Padding(

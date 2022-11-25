@@ -25,7 +25,7 @@ class _ConfigScreemState extends State<ConfigScreem> {
         title: const Text("Settings"), 
         centerTitle: true,
       ),
-      drawer: const DrawerST(),
+      drawer:  DrawerST(),
       body: SettingsList(
         sections: [
           SettingsSection(
@@ -34,7 +34,7 @@ class _ConfigScreemState extends State<ConfigScreem> {
             tiles: <SettingsTile>[
               SettingsTile.navigation(
                 leading: const Icon(Icons.lock_person_rounded),
-                title: const Text('Cambiar datos'),
+                title: const Text('Actualizar datos'),
                 onPressed: (context) =>{
                   Navigator.push(
               context, MaterialPageRoute(builder: (context) => EditUsuarioScreen()))
