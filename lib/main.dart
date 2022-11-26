@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scaffoldMessengerKey: NotificationServices.messengerKey,
       debugShowCheckedModeBanner: false,
-      title: 'TramiteUNMSM',
+      title: 'GTUNMSM',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
       onGenerateRoute: MyRoutes.generateRoute,
       initialRoute: MyRoutes.rHome,
