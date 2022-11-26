@@ -36,10 +36,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scaffoldMessengerKey: NotificationServices.messengerKey,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'TramiteUNMSM',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
       onGenerateRoute: MyRoutes.generateRoute,
-      initialRoute: MyRoutes.rGenerarTramite,
+      initialRoute: MyRoutes.rHome,
       //home: HomeScreem(),
     );
   }
