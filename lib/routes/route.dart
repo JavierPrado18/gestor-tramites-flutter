@@ -12,6 +12,9 @@ class MyRoutes {
   static const String rCuentaNueva = '/cuentaNueva';
   static const String rRecuperar = '/recuperar';
   static const String rError = '/error';
+  static const String rGenerarTramite = '/generarTramite';
+  static const String rFormularioGenerarTramite = '/formulariogenerarTramite';
+  static const String rEstadoTramite = '/estadoTramite';
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case ('/home'):
@@ -22,12 +25,17 @@ class MyRoutes {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case ('/cuentaNueva'):
         return MaterialPageRoute(builder: (_) => const CrearUsuarioScreen());
+      case ('/generarTramite'):
+        return MaterialPageRoute(builder: (_) => const GenerarTramitesScreen());
+      case ('/estadoTramite'):
+        return MaterialPageRoute(builder: (_) => const EstadoTramitesScreen());
+      case ('/formulariogenerarTramite'):
+        return MaterialPageRoute(
+            builder: (_) => const FormularioGenerarTramiteScreen());
       case ('/recuperar'):
         return MaterialPageRoute(builder: (_) => const RecuperarScreen());
       case ('/ajustes'):
-        return MaterialPageRoute(
-            builder: (_) =>
-                const ConfigScreem());
+        return MaterialPageRoute(builder: (_) => const ConfigScreem());
       case ('/editarUsuario'):
         return MaterialPageRoute(
             builder: (_) =>

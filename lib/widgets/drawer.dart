@@ -141,7 +141,7 @@ class DrawerST extends StatelessWidget {
                     title: 'Estado de Tramites',
                     icon: Icons.border_all_outlined,
                     trailing: Text(''),
-                    onTap: HomeScreem(),
+                    onTap: EstadoTramitesScreen(),
                   ),
                   // ListTileCustomized(
                   //   height: 35,
