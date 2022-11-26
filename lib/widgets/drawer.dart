@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
+import 'package:proyecto1/services/services_auth.dart';
 
 import '../screens/index.dart';
 
@@ -11,6 +13,7 @@ class DrawerST extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      // backgroundColor: Color.fromARGB(248, 4, 68, 80),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -20,9 +23,15 @@ class DrawerST extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12)),
+                  border: Border(
+                      bottom: BorderSide(
+                    color: Color.fromARGB(179, 103, 201, 11),
+                    width: 5,
+                  )),
+
+                  // borderRadius: BorderRadius.only(
+                  //     bottomLeft: Radius.circular(12),
+                  //     bottomRight: Radius.circular(12)),
                   image: DecorationImage(
                       image: NetworkImage(
                           'https://cdn.pixabay.com/photo/2020/03/07/11/54/the-fog-4909513__340.jpg'),
@@ -144,7 +153,14 @@ class DrawerST extends StatelessWidget {
 
                   SizedBox(
                     height: 10,
-                  )
+                  ),
+                  ListTileCustomized(
+                    height: 35,
+                    title: 'Cerrar Sesion',
+                    icon: Icons.logout_outlined,
+                    trailing: Text(''),
+                    onTap: LoginScreen(),
+                  ),
                 ],
               ),
             )
@@ -196,6 +212,7 @@ class ListTileCustomized extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authServices = Provider.of<AuthService>(context, listen: false);
     return SizedBox(
       height: height,
       child: ListTile(
@@ -208,6 +225,12 @@ class ListTileCustomized extends StatelessWidget {
         horizontalTitleGap: 3,
         trailing: trailing,
         onTap: () {
+          if (title == 'Cerrar Sesion') {
+            authServices.logOut();
+
+            Preferences.usuario = '';
+            Preferences.password = '';
+          }
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => onTap!));
         },
