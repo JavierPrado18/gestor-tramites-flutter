@@ -33,7 +33,7 @@ class PerfilScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 450),
                   
                   decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(Preferences.img),fit: BoxFit.cover),
+                  image: DecorationImage(image: NetworkImage(Preferences.img!=""?Preferences.img:"https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),fit: BoxFit.cover),
                   
                   
                   ),
@@ -66,17 +66,6 @@ class PerfilScreen extends StatelessWidget {
                    
                   ),
                 ),
-            //   Container(
-              
-            //   height: 250,
-            //   decoration: BoxDecoration(
-            //     // color:Color.fromRGBO(112, 25, 28,1),
-            //     borderRadius: BorderRadius.only(bottomLeft:Radius.circular(250),bottomRight:Radius.circular(200)),
-                
-            //     ),
-              
-            //   width: double.infinity,
-            
             // ),
             Positioned(
               bottom: 0,
