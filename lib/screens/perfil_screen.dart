@@ -7,8 +7,10 @@ class PerfilScreen extends StatelessWidget {
   const PerfilScreen({super.key});
 
   @override
-  Widget build(BuildContext context) { 
-
+  Widget build(BuildContext context) {
+    //para cortar el usuario del correo
+    final index=Preferences.usuario.indexOf("@");
+    final usuario=Preferences.usuario.replaceRange(index, null, "");
     return Scaffold(
       appBar:
       AppBar(
@@ -82,7 +84,7 @@ class PerfilScreen extends StatelessWidget {
             Positioned(
               top: 20,
               left: 20,
-              child: Text(Preferences.usuario,style: TextStyle(color: Colors.white,fontSize:25),),)
+              child: Text(usuario,style: TextStyle(color: Colors.white,fontSize:25),),)
 
 
             ]
@@ -94,8 +96,8 @@ class PerfilScreen extends StatelessWidget {
             children: [
               Text("Informacion",style: TextStyle(fontSize: 20 ,fontWeight: FontWeight.bold),),
               ListTile(
-                leading: Icon(Icons.person),
-                title: Text("Usuario"),
+                leading: Icon(Icons.email),
+                title: Text("Correo"),
                 subtitle: Text(Preferences.usuario),
                 
                 
@@ -106,7 +108,7 @@ class PerfilScreen extends StatelessWidget {
                 subtitle: Text("Ingenieria"),
               ),
               ListTile(
-                leading: Icon(Icons.email),
+                leading: Icon(Icons.phone_android_outlined),
                 title: Text("telefono"),
                 subtitle: Text(Preferences.telefono),
               ),
