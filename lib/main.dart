@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
 import 'package:proyecto1/routes/route.dart';
-import 'package:proyecto1/screens/index.dart';
+
 import 'package:proyecto1/services/notification_services.dart';
+
 import 'package:proyecto1/services/services_auth.dart';
 
 void main() async {
@@ -37,7 +38,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scaffoldMessengerKey: NotificationServices.messengerKey,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+
+      title: 'GTUNMSM',
+
       theme: Provider.of<ThemeProvider>(context).currentTheme,
       onGenerateRoute: MyRoutes.generateRoute,
       initialRoute: MyRoutes.rGenerarTramite,

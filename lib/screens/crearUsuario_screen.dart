@@ -55,9 +55,16 @@ class _RegistrarForm extends StatefulWidget {
 
 class _RegistrarFormState extends State<_RegistrarForm> {
   bool ocultarPassword = true;
+  bool ocultarPasswordRep = true;
   void _viewPassword() {
     setState(() {
       ocultarPassword = !ocultarPassword;
+    });
+  }
+
+  void _viewPasswordRep() {
+    setState(() {
+      ocultarPasswordRep = !ocultarPasswordRep;
     });
   }
 
@@ -88,7 +95,7 @@ class _RegistrarFormState extends State<_RegistrarForm> {
                       )),
                   onChanged: (value) {
                     login.email = value;
-                    Preferences.usuario = value;
+                    // Preferences.usuario = value;
                   },
                   validator: (value) {
                     String caracteres =
@@ -125,7 +132,7 @@ class _RegistrarFormState extends State<_RegistrarForm> {
                   ),
                   onChanged: (value) {
                     login.password = value;
-                    Preferences.password = value;
+                    // Preferences.password = value;
                   },
                   validator: (value) {
                     return (value != null && value.length >= 8)
@@ -141,7 +148,7 @@ class _RegistrarFormState extends State<_RegistrarForm> {
                 child: TextFormField(
                   style: const TextStyle(color: Colors.black, fontSize: 14),
                   autocorrect: false,
-                  obscureText: ocultarPassword,
+                  obscureText: ocultarPasswordRep,
                   keyboardType: TextInputType.text,
                   decoration: textFormdecorationCC(
                     hintText: 'Repetir Contraseña',
@@ -151,19 +158,19 @@ class _RegistrarFormState extends State<_RegistrarForm> {
                     ),
                     sufixIcon: InkWell(
                       ////para manejar lo del ojito
-                      onTap: _viewPassword,
-                      child: Icon(ocultarPassword
+                      onTap: _viewPasswordRep,
+                      child: Icon(ocultarPasswordRep
                           ? Icons.visibility
                           : Icons.visibility_off),
                     ),
                   ),
-                  onChanged: (value) {
-                    login.password = value;
-                    // Preferences.password = value;
-                  },
+                  // onChanged: (value) {
+                  //   login.password = value;
+                  //   // Preferences.password = value;
+                  // },
                   validator: (value) {
                     print(Preferences.password);
-                    return (value != null && value == Preferences.password)
+                    return (value != null && value == login.password)
                         ? null
                         : 'Las contraseñas deben conincidir';
                   },

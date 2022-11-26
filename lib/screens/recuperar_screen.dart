@@ -1,11 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/provider_login.dart';
 import 'package:proyecto1/routes/route.dart';
-import 'package:proyecto1/widgets/index.dart';
 
 class RecuperarScreen extends StatefulWidget {
   const RecuperarScreen({super.key});
@@ -82,7 +79,6 @@ class _RecuperarFormState extends State<_RecuperarForm> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 child: TextFormField(
-                  controller: usuarioController,
                   style: const TextStyle(color: Colors.black, fontSize: 14),
                   autocorrect: false,
                   keyboardType: TextInputType.emailAddress,
@@ -92,10 +88,6 @@ class _RecuperarFormState extends State<_RecuperarForm> {
                         Icons.email_outlined,
                         color: Colors.grey,
                       )),
-                  onChanged: (value) {
-                    login.email = value;
-                    Preferences.usuario = value;
-                  },
                   validator: (value) {
                     String caracteres =
                         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';

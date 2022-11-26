@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
 import 'package:proyecto1/routes/route.dart';
+import 'package:proyecto1/services/notification_services.dart';
 
 class EditUsuarioScreen extends StatefulWidget {
   const EditUsuarioScreen({super.key});
@@ -24,9 +25,11 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
   Widget build(BuildContext context) {
     final login = Provider.of<ProviderLogin>(context);
     final usuarioController = TextEditingController(text: Preferences.usuario);
-    final passwordController =TextEditingController(text: Preferences.password);
-    final telefonoController =TextEditingController(text: Preferences.telefono);
-    final imgController =TextEditingController(text: Preferences.img);
+    final passwordController =
+        TextEditingController(text: Preferences.password);
+    final telefonoController =
+        TextEditingController(text: Preferences.telefono);
+    final imgController = TextEditingController(text: Preferences.img);
 
     void guardarDatos() {
       Preferences.usuario = usuarioController.text;
@@ -74,7 +77,11 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                       key: login.formKey,
                       child: Column(
                         children: [
-                          Text("Cambiar imagen(url):",style: TextStyle(color: Colors.amber),textAlign:TextAlign.left,),
+                          Text(
+                            "Cambiar imagen(url):",
+                            style: TextStyle(color: Colors.amber),
+                            textAlign: TextAlign.left,
+                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 12, horizontal: 10),
@@ -84,22 +91,23 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                                   color: Colors.black, fontSize: 14),
                               autocorrect: false,
                               keyboardType: TextInputType.text,
-                              
                               decoration: textFormdecoration(
-                                  
                                   prefIcon: const Icon(
-                                    Icons.image,
-                                    color: Colors.grey,
-                                  )),
+                                Icons.image,
+                                color: Colors.grey,
+                              )),
                               onChanged: (value) {
                                 login.img = value;
                                 Preferences.img = value;
                               },
-                              
                             ),
                           ),
                           SizedBox(height: 20),
-                          Text("Cambiar Contraseña :",style: TextStyle(color: Colors.amber),textAlign:TextAlign.start,),
+                          Text(
+                            "Cambiar Contraseña :",
+                            style: TextStyle(color: Colors.amber),
+                            textAlign: TextAlign.start,
+                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 12, horizontal: 10),
@@ -111,7 +119,6 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                               obscureText: ocultarPassword,
                               keyboardType: TextInputType.text,
                               decoration: textFormdecoration(
-                                
                                 prefIcon: const Icon(
                                   Icons.key,
                                   color: Colors.grey,
@@ -135,7 +142,11 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                               },
                             ),
                           ),
-                          Text("Repita la contraseña :",style: TextStyle(color: Colors.amber),textAlign:TextAlign.start,),
+                          Text(
+                            "Repita la contraseña :",
+                            style: TextStyle(color: Colors.amber),
+                            textAlign: TextAlign.start,
+                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 12, horizontal: 10),
@@ -146,16 +157,14 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                               autocorrect: false,
                               obscureText: ocultarPassword,
                               keyboardType: TextInputType.text,
-                              
+
                               decoration: textFormdecoration(
-                                
                                 prefIcon: const Icon(
                                   Icons.key,
                                   color: Colors.grey,
                                 ),
-                                
                               ),
-                              
+
                               validator: (value) {
                                 return (value == Preferences.password)
                                     ? null
@@ -164,7 +173,11 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          Text("Cambiar telefono:",style: TextStyle(color: Colors.amber),textAlign:TextAlign.start,),
+                          Text(
+                            "Cambiar telefono:",
+                            style: TextStyle(color: Colors.amber),
+                            textAlign: TextAlign.start,
+                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 10),
@@ -174,21 +187,17 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                                   color: Colors.black, fontSize: 14),
                               autocorrect: false,
                               keyboardType: TextInputType.number,
-                              
                               decoration: textFormdecoration(
-                                  
                                   prefIcon: const Icon(
-                                    Icons.phone_android,
-                                    color: Colors.grey,
-                                  )),
+                                Icons.phone_android,
+                                color: Colors.grey,
+                              )),
                               onChanged: (value) {
                                 login.telefono = value;
-                                Preferences.telefono= value;
+                                Preferences.telefono = value;
                               },
-                              
                             ),
                           ),
-                          
 
                           //////////////////////////////////
                           ///////////botones////////////
@@ -227,7 +236,6 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                               ),
                             ),
                           ),
-                          
                         ],
                       )),
                 )
@@ -273,6 +281,3 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
         contentPadding: const EdgeInsets.all(8));
   }
 }
-
-
-
