@@ -37,6 +37,7 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
 
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(backgroundColor: Color.fromARGB(141, 255, 255, 255),),
       body: SingleChildScrollView(
         child: GestureDetector(
           onTap: () {
@@ -59,7 +60,7 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Editar Usuario',
+                              'Actualizar datos',
                               textAlign: TextAlign.center,
                               style: Styles.titleScreen,
                             ),
