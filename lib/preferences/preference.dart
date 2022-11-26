@@ -11,6 +11,7 @@ class Preferences {
 
   static Future init() async {
     _prefs = await SharedPreferences.getInstance();
+    clean();
   }
 
   //GET & SET
@@ -59,5 +60,11 @@ class Preferences {
   static set telefono(String telefono) {
     _telefono = telefono;
     _prefs.setString("telefono", telefono);
+  }
+
+  static clean() {
+    _prefs.setString("telefono", '');
+    _prefs.setString("password", '');
+    _prefs.setString("usuario", '');
   }
 }

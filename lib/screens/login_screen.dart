@@ -114,7 +114,6 @@ class __LogginFormState extends State<_LogginForm> {
                         color: Colors.grey,
                       )),
                   onChanged: (value) {
-                    login.email = value;
                     Preferences.usuario = value;
                   },
                   validator: (value) {
@@ -151,8 +150,8 @@ class __LogginFormState extends State<_LogginForm> {
                     ),
                   ),
                   onChanged: (value) {
-                    login.password = value;
                     Preferences.password = value;
+                    // Preferences.password = value;
                   },
                   validator: (value) {
                     return (value != null && value.length >= 8)
@@ -189,8 +188,9 @@ class __LogginFormState extends State<_LogginForm> {
                             }
 
                             login.isLoading = true;
-                            final String? errorMessage = await authService
-                                .login(login.email, login.password);
+                            final String? errorMessage =
+                                await authService.login(
+                                    Preferences.usuario, Preferences.password);
                             if (errorMessage == null) {
                               guardarDatos();
                               // ignore: use_build_context_synchronously
@@ -247,7 +247,7 @@ class __LogginFormState extends State<_LogginForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'No tieenes una cuenta?',
+                      'No tienes una cuenta?',
                       style: Styles.helpText,
                     ),
                     MaterialButton(
@@ -260,7 +260,7 @@ class __LogginFormState extends State<_LogginForm> {
                         Navigator.pushReplacementNamed(
                             context, MyRoutes.rCuentaNueva);
                       },
-                      child: Text('Regitrate Aqui',
+                      child: Text('Registrate Aqui',
                           style: TextStyle(color: Styles.textColorScreen)),
                     ),
                   ],

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
 import 'package:proyecto1/routes/route.dart';
-import 'package:proyecto1/screens/index.dart';
+
 import 'package:proyecto1/services/services_auth.dart';
 
 void main() async {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Gestor de Tramites',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
       onGenerateRoute: MyRoutes.generateRoute,
       initialRoute: MyRoutes.rLogin,
