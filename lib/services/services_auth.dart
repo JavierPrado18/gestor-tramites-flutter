@@ -38,10 +38,16 @@ class AuthService extends ChangeNotifier {
     final response = await http.post(url, body: json.encode(authdata));
     final Map<String, dynamic> decodeResponse = json.decode(response.body);
     if (decodeResponse.containsKey('idToken')) {
-      storage.write(key: 'token', value: decodeResponse['idtoken']);
+      storage.write(key: 'token', value: decodeResponse['idToken']);
       return null;
     } else {
       return decodeResponse['error']['message'];
     }
+  }
+
+  //////////cerrar sesion///////
+  Future logOut() async {
+    await storage.delete(key: 'token');
+    return;
   }
 }

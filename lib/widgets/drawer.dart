@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
+import 'package:proyecto1/services/services_auth.dart';
 
 import '../screens/index.dart';
 
@@ -11,64 +13,82 @@ class DrawerST extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      // backgroundColor: Color.fromARGB(248, 4, 68, 80),
       child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: 150,
-              child: DrawerHeader(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12)),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          'https://cdn.pixabay.com/photo/2020/03/07/11/54/the-fog-4909513__340.jpg'),
-                      fit: BoxFit.fitWidth),
-                ),
-                child: Row(
-                  children: [
-                    RawMaterialButton(
-                      onPressed: () {
-                        //deberia direccionar a PerfilScreen
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ProfileScreen()!));
-                      },
-                      elevation: 1.0,
-                      fillColor: Colors.white,
-                      padding: EdgeInsets.all(5.0),
-                      shape: const CircleBorder(),
-                      child: CircleAvatar(
-                        radius: 35,
-                        backgroundImage: NetworkImage(Preferences.img != ""
-                            ? Preferences.img
-                            : "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+
+              height: 160,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(150),
+                          topRight: Radius.circular(150)
+                          ),
+                      image: DecorationImage(
+                          image: NetworkImage(Preferences.img != ""
+                                ? Preferences.img
+                                : "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                          fit: BoxFit.fitWidth),
+                    ),
+                  ),
+                   Container(
+                    height: 150,
+                    decoration:BoxDecoration( 
+                      color: Color.fromRGBO(112, 25, 28, 1).withOpacity(.5),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            (Preferences.usuario == '')
-                                ? 'User123'
-                                : Preferences.usuario,
-                            style: Styles.titleDrawer,
-                            softWrap: true,
+                  DrawerHeader(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    
+                    child: Row(
+                      children: [
+                        RawMaterialButton(
+                          onPressed: () {
+                            //deberia direccionar a PerfilScreen
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => ProfileScreen()!));
+                          },
+                          elevation: 1.0,
+                          fillColor: Colors.white,
+                          padding: EdgeInsets.all(5.0),
+                          shape: const CircleBorder(),
+                          child: CircleAvatar(
+                            radius: 35,
+                            backgroundImage: NetworkImage(Preferences.img != ""
+                                ? Preferences.img
+                                : "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
                           ),
-                          Text('Ingenieria de Sistemas',
-                              style: Styles.subtitleDrawer)
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                (Preferences.usuario == '')
+                                    ? 'User123'
+                                    : Preferences.usuario,
+                                style: Styles.titleDrawer,
+                                softWrap: true,
+                              ),
+                              Text('Ingenieria de Sistemas',
+                                  style: Styles.subtitleDrawer)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
@@ -144,7 +164,14 @@ class DrawerST extends StatelessWidget {
 
                   SizedBox(
                     height: 10,
-                  )
+                  ),
+                  ListTileCustomized(
+                    height: 35,
+                    title: 'Cerrar Sesion',
+                    icon: Icons.logout_outlined,
+                    trailing: Text(''),
+                    onTap: LoginScreen(),
+                  ),
                 ],
               ),
             )
@@ -196,6 +223,7 @@ class ListTileCustomized extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authServices = Provider.of<AuthService>(context, listen: false);
     return SizedBox(
       height: height,
       child: ListTile(
@@ -208,6 +236,12 @@ class ListTileCustomized extends StatelessWidget {
         horizontalTitleGap: 3,
         trailing: trailing,
         onTap: () {
+          if (title == 'Cerrar Sesion') {
+            authServices.logOut();
+
+            Preferences.usuario = '';
+            Preferences.password = '';
+          }
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => onTap!));
         },
