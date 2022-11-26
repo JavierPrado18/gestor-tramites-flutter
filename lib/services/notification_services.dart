@@ -14,7 +14,7 @@ class NotificationServices {
               color: Colors.white,
             ),
             Expanded(
-              child: Text(' Datos Enviados'),
+              child: Text(message),
             )
           ],
         ));
