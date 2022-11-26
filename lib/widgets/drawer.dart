@@ -3,11 +3,11 @@ import 'package:proyecto1/preferences/index.dart';
 
 import '../screens/index.dart';
 
-class  DrawerST extends StatelessWidget {
+class DrawerST extends StatelessWidget {
   DrawerST({
     Key? key,
   }) : super(key: key);
-  String imagen=Preferences.img;
+  String imagen = Preferences.img;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -42,11 +42,11 @@ class  DrawerST extends StatelessWidget {
                       fillColor: Colors.white,
                       padding: EdgeInsets.all(5.0),
                       shape: const CircleBorder(),
-                      child:  CircleAvatar(
+                      child: CircleAvatar(
                         radius: 35,
-                        backgroundImage:NetworkImage(Preferences.img!=""
-                          ?Preferences.img
-                          :"https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                        backgroundImage: NetworkImage(Preferences.img != ""
+                            ? Preferences.img
+                            : "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
                       ),
                     ),
                     Padding(
@@ -132,7 +132,7 @@ class  DrawerST extends StatelessWidget {
                     title: 'Estado de Tramites',
                     icon: Icons.border_all_outlined,
                     trailing: Text(''),
-                    onTap: HomeScreem(),
+                    onTap: EstadoTramitesScreen(),
                   ),
                   // ListTileCustomized(
                   //   height: 35,

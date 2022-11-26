@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/routes/route.dart';
 
+import '../services/notification_services.dart';
+
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key});
 
@@ -29,6 +31,7 @@ class ErrorScreen extends StatelessWidget {
                 onPressed: () {
                   // ignore: use_build_context_synchronously
                   Navigator.pushReplacementNamed(context, MyRoutes.rLogin);
+                  NotificationServices.showSnackbar('Algo salio mal');
                 },
                 child: const Text('Ir a Inicio'),
               ),
