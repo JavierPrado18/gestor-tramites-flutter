@@ -68,6 +68,7 @@ class Preferences {
     _prefs.setString("telefono", '');
     _prefs.setString("password", '');
     _prefs.setString("usuario", '');
+  }
 
   static String get titulo {
     return _prefs.getString('titulo') ?? _titulo;
