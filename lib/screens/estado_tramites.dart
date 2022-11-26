@@ -12,7 +12,7 @@ class EstadoTramitesScreen extends StatelessWidget {
           'Estado de Tramites',
         ),
         actions: [
-          TextButton(onPressed: () {}, child: const Text('3')),
+          TextButton(onPressed: () {}, child: const Text('4')),
           const Icon(Icons.notifications),
         ],
         centerTitle: true,

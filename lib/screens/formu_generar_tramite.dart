@@ -64,7 +64,7 @@ class _FormularioGenerarTramiteScreenState
                 //Cerrar el teclado
                 FocusScope.of(context).requestFocus(new FocusNode());
                 Future.delayed(const Duration(milliseconds: 500), () {
-                  NotificationServices.showSnackbar('Hola');
+                  NotificationServices.showSnackbar('Trámite enviado');
                 });
               },
             ),
