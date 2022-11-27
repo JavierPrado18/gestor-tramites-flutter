@@ -45,45 +45,68 @@ class _HomeScreemState extends State<HomeScreem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange,
+      backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
         title: const Text("UNMSM"),
         centerTitle: true,
       ),
       drawer: DrawerST(),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Gestion de Tramites de la UNMSM',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 30,fontWeight: FontWeight.bold),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                  "Te damos la bienvenida al portal  donde podras realizar tus trámites de forma sencilla y rápida.",
-                  style: TextStyle( fontSize: 20,fontWeight: FontWeight.w300,),textAlign: TextAlign.justify,),
-            ),
-            
-            SizedBox(height: 35,),
-            Text("NOTICIAS",style: TextStyle(color: Colors.white, fontSize: 30,fontWeight: FontWeight.bold),), 
-            SizedBox(height: 20,),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Gestion de Tramites de la UNMSM',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    "Te damos la bienvenida al portal  donde podras realizar tus trámites de forma sencilla y rápida.",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
 
-            //llamamos el carusel
-            CarouselSlider(
-                //mapeamos la lista
-                items: news.map((e) {
-                  return buildView(context, e);
-                }).toList(),
-                options: CarouselOptions(
-                  height: 300,
-                  autoPlay: true,
-                  autoPlayAnimationDuration: Duration(seconds: 1),
-                  autoPlayCurve: Curves.easeInOut,
-                ))
-          ],
+                SizedBox(
+                  height: 35,
+                ),
+                Text(
+                  "NOTICIAS",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+
+                //llamamos el carusel
+                CarouselSlider(
+                    //mapeamos la lista
+                    items: news.map((e) {
+                      return buildView(context, e);
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 300,
+                      autoPlay: true,
+                      autoPlayAnimationDuration: Duration(seconds: 1),
+                      autoPlayCurve: Curves.easeInOut,
+                    ))
+              ],
+            ),
+          ),
         ),
       ),
     ); //
