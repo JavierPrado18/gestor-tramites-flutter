@@ -116,9 +116,11 @@ class DrawerST extends StatelessWidget {
                   ListTileCustomized(
                     height: 35,
                     title: 'Notificaciones',
-                    icon: Icons.messenger_outline_outlined,
-                    trailing: Text('15', style: TextStyle(fontSize: 12)),
-                    onTap: HomeScreem(),
+                    icon: Icons.notifications_active,
+                    colorFondo: Colors.red,
+                    trailing: Text('4', style: TextStyle(fontSize: 18)),
+                    onTap: EstadoTramitesScreen(),
+                  
                   ),
                   ListTileCustomized(
                     height: 35,
@@ -221,6 +223,7 @@ class ListTileCustomized extends StatelessWidget {
   final Widget? onTap;
   final IconData? icon;
   final double? height;
+  final Color? colorFondo;
 
   const ListTileCustomized(
       {super.key,
@@ -228,7 +231,8 @@ class ListTileCustomized extends StatelessWidget {
       this.trailing,
       this.onTap,
       this.icon,
-      this.height});
+      this.height,
+      this.colorFondo});
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +241,7 @@ class ListTileCustomized extends StatelessWidget {
       height: height,
       child: ListTile(
         contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 1),
-        leading: Icon(icon),
+        leading: Icon(icon,color: colorFondo,),
         title: Text(
           '$title',
           style: TextStyle(fontSize: 13),
