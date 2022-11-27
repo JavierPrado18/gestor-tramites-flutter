@@ -6,7 +6,8 @@ class Styles {
   ///
   ///
   static Color textColorScreen = Colors.greenAccent;
-  static Color textColorScreen2 = Colors.blueGrey;
+  static Color textColorScreen2 = Colors.white;
+  // static Color textColorScreen2 = Colors.blueGrey;
   static Color botonColorScreen = Colors.blueGrey;
 
   static Color appColor = Color.fromRGBO(112, 25, 28, 1);
@@ -20,8 +21,8 @@ class Styles {
       fontSize: 11, fontWeight: FontWeight.normal, color: Colors.white);
   static TextStyle titleScreen =
       TextStyle(color: textColorScreen, fontSize: 25);
-  static TextStyle subtitleScreen =
-      TextStyle(color: textColorScreen2, fontSize: 23);
+  static TextStyle subtitleScreen = TextStyle(
+      color: textColorScreen2, fontSize: 23, fontWeight: FontWeight.bold);
   static TextStyle helpText =
       const TextStyle(color: Colors.white, fontSize: 12);
 

@@ -19,7 +19,7 @@ class _CrearUsuarioScreenState extends State<CrearUsuarioScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromRGBO(112, 25, 28, 1),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: GestureDetector(

@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromRGBO(112, 25, 28, 1),
       body: SingleChildScrollView(
         child: GestureDetector(
           onTap: () {
