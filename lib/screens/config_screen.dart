@@ -22,7 +22,7 @@ class _ConfigScreemState extends State<ConfigScreem> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(112, 25, 28,1),
-        title: const Text("Settings"), 
+        title: const Text("Configuraciones"), 
         centerTitle: true,
       ),
       drawer:  DrawerST(),
