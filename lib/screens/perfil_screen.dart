@@ -9,7 +9,7 @@ class PerfilScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //para cortar el usuario del correo
-    final index=Preferences.usuario.indexOf("@");
+    final index=Preferences.usuario==""?0:Preferences.usuario.indexOf("@");
     final usuario=Preferences.usuario.replaceRange(index, null, "");
     return Scaffold(
       appBar:
