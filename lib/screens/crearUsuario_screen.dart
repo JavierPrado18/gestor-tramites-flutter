@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/provider_login.dart';
 import 'package:proyecto1/routes/route.dart';
+import 'package:proyecto1/services/notification_services.dart';
 import 'package:proyecto1/services/services_auth.dart';
 
 class CrearUsuarioScreen extends StatefulWidget {
@@ -207,6 +208,11 @@ class _RegistrarFormState extends State<_RegistrarForm> {
                             final String? errorMessage = await authService
                                 .createUser(login.email, login.password);
                             if (errorMessage == null) {
+                              Future.delayed(const Duration(milliseconds: 500),
+                                  () {
+                                NotificationServices.showSnackbar(
+                                    'Trámite enviado');
+                              });
                               // ignore: use_build_context_synchronously
                               Navigator.pushReplacementNamed(
                                   context, MyRoutes.rLogin);

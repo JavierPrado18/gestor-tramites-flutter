@@ -52,7 +52,7 @@ class _RecuperarFormState extends State<_RecuperarForm> {
   @override
   Widget build(BuildContext context) {
     final login = Provider.of<ProviderLogin>(context);
-    final usuarioController = TextEditingController(text: Preferences.usuario);
+    //final usuarioController = TextEditingController(text: Preferences.usuario);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 2),
@@ -71,13 +71,14 @@ class _RecuperarFormState extends State<_RecuperarForm> {
                 height: 65,
                 width: 300,
                 child: Text(
-                  "Se enviara una clave transitoria a tu correo, \ndicha contraseña tendra una duracion de 10 minutos. \nDeberas cambiarla luego de ingresar al aplicativo",
+                  "Se enviara una clave transitoria a tu correo, dicha contraseña tendra una duracion de 10 minutos. Deberas cambiarla luego de ingresar al aplicativo",
                   style: Styles.helpText, textAlign: TextAlign.justify,
                   //style: Styles.subtitleScreen,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 8),
                 child: TextFormField(
                   style: const TextStyle(color: Colors.black, fontSize: 14),
                   autocorrect: false,

@@ -45,9 +45,12 @@ class _HomeScreemState extends State<HomeScreem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Color.fromARGB(192, 210, 65, 69),
       appBar: AppBar(
-        title: const Text("UNMSM"),
+        title: const Text(
+          "UNMSM",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       drawer: DrawerST(),
@@ -114,7 +117,7 @@ class _HomeScreemState extends State<HomeScreem> {
 
   Widget buildView(BuildContext context, e) {
     return Container(
-      width: 300,
+      width: 250,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image:
