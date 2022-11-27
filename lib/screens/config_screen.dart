@@ -19,11 +19,13 @@ class _ConfigScreemState extends State<ConfigScreem> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         backgroundColor: Color.fromRGBO(112, 25, 28, 1),
         title: const Text(
           "Configuraciones",
           style: TextStyle(color: Colors.white),
         ),
+
         centerTitle: true,
       ),
       drawer: DrawerST(),
