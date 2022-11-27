@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/preferences/preference.dart';
 import 'package:proyecto1/routes/route.dart';
 
@@ -16,8 +17,9 @@ class _GenerarTramitesScreenState extends State<GenerarTramitesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Generar Tramite',
+          style: Styles.appbarText,
         ),
         centerTitle: true,
         elevation: 0,

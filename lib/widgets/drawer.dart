@@ -12,13 +12,17 @@ class DrawerST extends StatelessWidget {
   String imagen = Preferences.img;
   @override
   Widget build(BuildContext context) {
+    final index =
+        (Preferences.usuario != '') ? Preferences.usuario.indexOf("@") : -1;
+    final usuario = (index != -1)
+        ? Preferences.usuario.replaceRange(index, null, "")
+        : 'User123';
     return Drawer(
       // backgroundColor: Color.fromARGB(248, 4, 68, 80),
       child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-
               height: 160,
               child: Stack(
                 children: [
@@ -27,25 +31,23 @@ class DrawerST extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(150),
-                          topRight: Radius.circular(150)
-                          ),
+                          topRight: Radius.circular(150)),
                       image: DecorationImage(
                           image: NetworkImage(Preferences.img != ""
-                                ? Preferences.img
-                                : "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                              ? Preferences.img
+                              : "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
                           fit: BoxFit.fitWidth),
                     ),
                   ),
-                   Container(
+                  Container(
                     height: 150,
-                    decoration:BoxDecoration( 
+                    decoration: BoxDecoration(
                       color: Color.fromRGBO(112, 25, 28, 1).withOpacity(.5),
-                      ),
                     ),
+                  ),
                   DrawerHeader(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                    
                     child: Row(
                       children: [
                         RawMaterialButton(
@@ -76,7 +78,7 @@ class DrawerST extends StatelessWidget {
                               Text(
                                 (Preferences.usuario == '')
                                     ? 'User123'
-                                    : Preferences.usuario,
+                                    : usuario,
                                 style: Styles.titleDrawer,
                                 softWrap: true,
                               ),
@@ -116,6 +118,13 @@ class DrawerST extends StatelessWidget {
                     title: 'Notificaciones',
                     icon: Icons.messenger_outline_outlined,
                     trailing: Text('15', style: TextStyle(fontSize: 12)),
+                    onTap: HomeScreem(),
+                  ),
+                  ListTileCustomized(
+                    height: 35,
+                    title: 'Noticias',
+                    icon: Icons.newspaper,
+                    trailing: Text('', style: TextStyle(fontSize: 12)),
                     onTap: HomeScreem(),
                   ),
                   // ListTileCustomized(

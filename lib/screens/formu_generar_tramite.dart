@@ -19,6 +19,7 @@ class _FormularioGenerarTramiteScreenState
       appBar: AppBar(
         title: Text(
           Preferences.titulo,
+          style: Styles.appbarText,
         ),
         centerTitle: true,
         elevation: 0,

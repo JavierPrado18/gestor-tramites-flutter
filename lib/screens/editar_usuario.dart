@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:proyecto1/preferences/index.dart';
 import 'package:proyecto1/providers/index.dart';
 import 'package:proyecto1/routes/route.dart';
-import 'package:proyecto1/services/notification_services.dart';
 
 class EditUsuarioScreen extends StatefulWidget {
   const EditUsuarioScreen({super.key});
@@ -39,8 +37,15 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(backgroundColor: Color.fromARGB(141, 255, 255, 255),),
+      backgroundColor: Color.fromARGB(192, 210, 65, 69),
+      appBar: AppBar(
+        title: Text(
+          'Actualizar datos',
+          style: Styles.appbarText,
+        ),
+        centerTitle: true,
+        //backgroundColor: Color.fromARGB(141, 255, 255, 255),
+      ),
       body: SingleChildScrollView(
         child: GestureDetector(
           onTap: () {
@@ -53,24 +58,27 @@ class _EditUsuarioScreenState extends State<EditUsuarioScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Container(
-                        width: 250,
-                        height: 120,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Actualizar datos',
-                              textAlign: TextAlign.center,
-                              style: Styles.titleScreen,
-                            ),
-                          ],
-                        )),
-                  ],
+                SizedBox(
+                  height: 30,
                 ),
+                // Stack(
+                //   alignment: AlignmentDirectional.center,
+                //   children: [
+                //     Container(
+                //         width: 250,
+                //         height: 120,
+                //         child: Column(
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           children: [
+                //             // Text(
+                //             //   'Actualizar datos',
+                //             //   textAlign: TextAlign.center,
+                //             //   style: Styles.titleScreen,
+                //             // ),
+                //           ],
+                //         )),
+                //   ],
+                // ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 30),
                   child: Form(

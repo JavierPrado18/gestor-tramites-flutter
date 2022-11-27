@@ -114,6 +114,7 @@ class __LogginFormState extends State<_LogginForm> {
                         color: Colors.grey,
                       )),
                   onChanged: (value) {
+                    login.email = value;
                     Preferences.usuario = value;
                   },
                   validator: (value) {
@@ -150,6 +151,7 @@ class __LogginFormState extends State<_LogginForm> {
                     ),
                   ),
                   onChanged: (value) {
+                    login.password = value;
                     Preferences.password = value;
                     // Preferences.password = value;
                   },
@@ -188,9 +190,8 @@ class __LogginFormState extends State<_LogginForm> {
                             }
 
                             login.isLoading = true;
-                            final String? errorMessage =
-                                await authService.login(
-                                    Preferences.usuario, Preferences.password);
+                            final String? errorMessage = await authService
+                                .login(login.email, login.password);
                             if (errorMessage == null) {
                               guardarDatos();
                               // ignore: use_build_context_synchronously

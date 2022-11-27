@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto1/preferences/index.dart';
 import '../widgets/index.dart';
 
 class EstadoTramitesScreen extends StatelessWidget {
@@ -8,11 +9,18 @@ class EstadoTramitesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Estado de Tramites',
+        title: Text(
+          'Estado Tramites',
+          style: Styles.appbarText,
         ),
         actions: [
-          TextButton(onPressed: () {}, child: const Text('4')),
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                '4',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              )),
           const Icon(Icons.notifications),
         ],
         centerTitle: true,
