@@ -1,4 +1,4 @@
-package com.example.proyecto1
+package com.teamtechsixdev.gtunmsm
 
 import io.flutter.embedding.android.FlutterActivity
 
