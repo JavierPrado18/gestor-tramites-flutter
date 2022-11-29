@@ -211,7 +211,7 @@ class _RegistrarFormState extends State<_RegistrarForm> {
                               Future.delayed(const Duration(milliseconds: 500),
                                   () {
                                 NotificationServices.showSnackbar(
-                                    'Trámite enviado');
+                                    'Usuario Registrado');
                               });
                               // ignore: use_build_context_synchronously
                               Navigator.pushReplacementNamed(

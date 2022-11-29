@@ -50,4 +50,10 @@ class AuthService extends ChangeNotifier {
     await storage.delete(key: 'token');
     return;
   }
+
+  ////////////verficar si el token esta(si ya se loggeo)//
+  ///
+  Future<String> leerToken() async {
+    return await storage.read(key: 'token') ?? '';
+  }
 }

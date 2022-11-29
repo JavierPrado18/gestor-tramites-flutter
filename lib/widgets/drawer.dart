@@ -120,7 +120,6 @@ class DrawerST extends StatelessWidget {
                     colorFondo: Colors.red,
                     trailing: Text('4', style: TextStyle(fontSize: 18)),
                     onTap: EstadoTramitesScreen(),
-                  
                   ),
                   ListTileCustomized(
                     height: 35,
@@ -241,7 +240,10 @@ class ListTileCustomized extends StatelessWidget {
       height: height,
       child: ListTile(
         contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 1),
-        leading: Icon(icon,color: colorFondo,),
+        leading: Icon(
+          icon,
+          color: colorFondo,
+        ),
         title: Text(
           '$title',
           style: TextStyle(fontSize: 13),
@@ -251,10 +253,12 @@ class ListTileCustomized extends StatelessWidget {
         onTap: () {
           if (title == 'Cerrar Sesion') {
             authServices.logOut();
+            print('cerrado');
 
             Preferences.usuario = '';
             Preferences.password = '';
           }
+          print('jajaja');
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => onTap!));
         },

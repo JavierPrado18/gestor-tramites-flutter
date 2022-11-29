@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       title: 'GTUNMSM',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
       onGenerateRoute: MyRoutes.generateRoute,
-      initialRoute: MyRoutes.rHome,
+      initialRoute: MyRoutes.rVerify,
       //home: HomeScreem(),
     );
   }

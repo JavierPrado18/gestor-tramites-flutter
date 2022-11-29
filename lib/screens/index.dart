@@ -1,9 +1,7 @@
+export 'package:proyecto1/screens/verify_auth_screen.dart';
 export 'package:proyecto1/screens/estado_tramites.dart';
-
 export 'package:proyecto1/screens/formu_generar_tramite.dart';
-
 export 'package:proyecto1/screens/editar_usuario.dart';
-
 export 'package:proyecto1/screens/perfil_screen.dart';
 export 'package:proyecto1/screens/error_screen.dart';
 export 'package:proyecto1/screens/crearUsuario_screen.dart';
